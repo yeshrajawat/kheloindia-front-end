@@ -1,0 +1,30 @@
+.nav{
+    background-color:#1E4182 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transition-timing-function: ease-in;
+    transition: all 0.5s;
+
+
+    .navItem{
+        text-decoration: none;
+        margin-right: 15px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: white;
+        padding: 10px;
+        transition: ease-in-out 0.4s;
+        &:hover{
+            background-color: rgba(200, 205, 245, 0.219);
+        }
+    }
+}
+.nav__black{
+    
+    background-color: #1E4182;
+    width: 100%;
+    position: fixed;
+    top: 0;
+}

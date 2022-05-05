@@ -1,0 +1,17 @@
+.banner{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    
+    .left{
+        margin-left:5px ;
+        margin-top: 5px;    
+    
+    }
+    .right{
+        margin-top: 5px;
+        margin-right: 20px;
+    }
+}

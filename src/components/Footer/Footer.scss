@@ -1,0 +1,53 @@
+.footer{
+   
+   .row{
+       margin-top: 30px;
+    padding-top: 30px;
+
+    width: 100%;
+    background-color:#353535 ;
+    h1{
+        color: white;
+        text-align: center;
+    }
+    p{
+        color: white;
+        width: 50%;
+        margin-left: auto;
+        font-size: 20px;
+        margin-right: auto;
+        text-align: center;
+        font-weight: lighter;
+    }
+    .social-icons{
+        padding-bottom: 20px;
+        margin-top: 20px;
+        display: flex;
+        width: 30%;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: space-evenly;
+        .icons{
+            color: white;
+            font-size: 26px;
+            
+        }
+    }
+    .credit{
+        
+        
+        padding-top:20px ;
+        padding-bottom:20px ;
+        background-color: #343333;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        span{
+            color: goldenrod;
+        }
+    }
+   }
+}
