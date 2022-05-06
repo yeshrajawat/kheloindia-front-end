@@ -9,6 +9,8 @@ import Pledge from './pages/Pledge/Pledge';
 import About from './pages/AboutPage/About';
 import Tender from './pages/Tender/Tender';
 import Footer from './components/Footer/Footer';
+import SignUpScreen from './pages/SignUpScreen/SignUpScreen';
+import Welcome from './pages/WelcomePage/Welcome';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
         <Route path='/pledge' element={<Pledge/>} />
         <Route path='/aboutKL' element={<About/>} />
         <Route path='/tenders' element={<Tender/>} />
+        <Route path='/signup' element={<SignUpScreen/>} />
+        <Route path='/welcome' element={<Welcome/> }/>
         <Route path='*' element={<Error/>} />
         
       </Routes>
