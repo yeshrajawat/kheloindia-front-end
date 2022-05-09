@@ -1,8 +1,28 @@
 import React from 'react'
 import './Navbar.scss'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useEffect,useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import Axios  from 'axios'
+import { authActions } from '../../store'
+import axios from 'axios'
+axios.defaults.withCredentials = true;
 const Navbar = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector(state=> state.isLoggedIn);
+  const sendLogoutReq = ()=>{
+    Axios.post('http://localhost:3001/user/logout', null, {
+      withCredentials:true
+    }).then(response => {
+      if(response.status == 200){
+        dispatch(authActions.logout());
+        navigate('/login');
+      }
+      return new Error("Unable to Logout. Please try again.")
+    })
+  }
+
   const [show, handleShow] = useState(false);
 
   const transitionNavBar = ()=>{
@@ -45,9 +65,13 @@ useEffect( () => {
         Tenders
         </Link>
 
-        <Link className="navItem" to='/login'> 
+       {!isLoggedIn && ( <Link className="navItem" to='/login'> 
         Login
-        </Link>
+        </Link>)}
+
+        {isLoggedIn && (<Link onClick={() => sendLogoutReq()} className="navItem" to='/'> 
+        Logout
+        </Link>)}
                 
         
     </div>

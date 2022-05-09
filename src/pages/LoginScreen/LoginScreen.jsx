@@ -1,39 +1,41 @@
 import { TextField } from '@mui/material'
 import Axios  from 'axios';
 import React, { useRef, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { authActions } from '../../store';
 import './LoginScreen.scss'
-
+Axios.defaults.withCredentials = true;
 
 
 const LoginScreen = () => {
 
+  const dispatch = useDispatch();
   let navigate = useNavigate();
   const [email,setEmailState] = useState('');
   const [password,setPasswordState] = useState('');
-  
+  const isLoggedIn = useSelector(state=> state.isLoggedIn)
 
 
-  const sendRequest = () => {
-    Axios.post('http://localhost:3001/user/login',{
-      email:email,password:password}
-      ).then((response => {
-        if(response.data.message == "Successfully Logged In"){
-          alert(response.data.message)
-          console.log(response.data);
-          navigate('/welcome');
-         }
-         else{
-           console.log(response.data.message);
-           alert(response.data.message);
-         }
-      }))
+  const sendRequest =   () => {
+     Axios.post('http://localhost:3001/user/login',{
+      email:email,
+      password:password
+    }).catch(err=>{
+        console.log(err);
+    }).then(response => {
+      dispatch(authActions.login());
+      navigate('/user');
+      return response.data;
+    });
+    
   }
 
   const handleSubmit = (e)=>{
       e.preventDefault();
-      console.log(email+" "+password);
-      sendRequest();
+    const data =  sendRequest();
+    console.log(data);
+
   }
 
 

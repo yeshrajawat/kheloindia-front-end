@@ -1,0 +1,96 @@
+.datatable{
+    
+    height: 93%;
+    padding: 20px;
+
+    .datatableTitle{
+        width: 100%;
+        font-size: 24px;
+        color: gray;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+        .link{
+            padding: 5px;
+            text-decoration: none;
+            color: green;
+            font-size: 16px;
+            font-weight: 400;
+            border: 1px solid green;
+            border-radius: 5px;
+            cursor: pointer;
+
+        }
+    
+    }
+
+    .cellWithImg{
+        display: flex;
+        align-items: center;
+
+        .cellImg{
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+    }
+
+    .cellWithStatus{
+        padding: 10px;
+        border-radius: 5px;
+        
+        &.active{
+            background-color: rgba(0, 206, 0, 0.133);
+                color: green;
+        }
+        &.pending{
+            background-color: rgba(218, 165, 32, 0.133);
+            color: goldenrod;
+        }
+        &.passive{
+            background-color: rgba(255, 0, 0, 0.133);
+            color: red;
+        }
+       
+    }
+    .cellAction{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        
+        
+        .viewButton{
+            border-radius: 5px;
+            margin: 5px;
+            color: darkblue;
+            border: 1px  darkblue;
+            border: 1px dotted rgba(0, 0, 139, 0.582);
+            padding: 2px 5px;
+            transition: ease-in-out 0.4s;
+            
+
+            &:hover{
+                transform: scale(1.09);
+                background-color:rgba(0, 0, 139, 0.155) ;
+            }
+        }
+        .deleteButton{
+            border-radius: 5px;
+            margin: 5px;
+            color: crimson;
+            border: 1px dotted rgba(220, 20, 60, 0.593);
+            padding: 2px 5px;
+            transition: ease-in-out 0.4s;
+            &:hover{
+                transform: scale(1.09);
+                background-color:rgba(220, 20, 60, 0.155) ;
+            }
+        }
+        
+    }
+}

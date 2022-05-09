@@ -4,19 +4,16 @@ import './Welcome.scss';
 Axios.defaults.withCredentials = true
 const Welcome = () => {
 
-    const[user,setUser] = useState({
-        _id:"",
-        username:"",
-        email:"",
-    });
+    const[username,setUsername] = useState("");
+    const[_id,setUser_id] = useState("");
+    const[email,setEmail] = useState("");
     const sendRequest = () => {
         Axios.get('http://localhost:3001/user/',{
             withCredentials:true
         }).then(response=> {
-            console.log(response.data.user);
-            user.email = response.data.user.email;
-            user.username = response.data.user.username;
-            user._id = response.data.user._id;
+            setEmail(response.data.user.email);
+            setUsername(response.data.user.username);
+            setUser_id(response.data.user._id);
         })
     }
     useEffect(()=> {
@@ -25,11 +22,10 @@ const Welcome = () => {
 
 
   return (
-      
-    <div>
-        <h1>{user.username}</h1>
+    <div className='welcome'>
+        {username}
     </div>
   )
 }
 
-export default Welcome
+export default Welcome;
